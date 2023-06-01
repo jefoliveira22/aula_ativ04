@@ -4,7 +4,7 @@ const mysql = require("mysql2");
 const app = express();
 
 const db = mysql.createConnection({
-  host: '127.0.0.1',
+  host: 'localhost',
   user: 'user',
   password: 'passwd',
   database: 'db_aula'
