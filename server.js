@@ -10,9 +10,9 @@ const db = mysql.createConnection({
   database: 'db_aula'
 });
 
-db.connect(err => {
-  if (err) {
-    console.error('Erro ao conectar ao banco de dados: ' + err.stack);
+db.connect(erro => {
+  if (erro) {
+    console.error('Erro ao conectar ao banco de dados: ' + erro.stack);
     return;
   }
   console.log('Conexão bem-sucedida ao banco de dados');
@@ -36,15 +36,15 @@ app.get('/readiness', (request, response) => {
     });
 })
 
-app.get('/consulta-dados', (req, res) => {
+app.get('/consulta-dados', (request, response) => {
   const sql = 'SELECT * FROM clientes';
-  db.query(sql, (err, result) => {
-    if (err) {
-      console.error('Erro ao executar a consulta: ' + err.stack);
-      res.status(500).send('Erro ao consultar os dados');
+  db.query(sql, (erro, resultado) => {
+    if (erro) {
+      console.error('Erro ao executar a consulta: ' + erro.stack);
+      response.status(500).send('Erro ao consultar os dados');
       return;
     }
-    res.json(result);
+    response.json(resultado);
   });
 });
 
