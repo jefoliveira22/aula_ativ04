@@ -12,7 +12,7 @@ services:
     ports:
       - 3306:3306
     volumes:
-      - db_data:/var/lib/mysql
+      - ./db_aula:/docker-entrypoint-initdb.d
     networks:
       - exe04
   
@@ -30,4 +30,4 @@ services:
 networks:
   exe04:
 volumes:
-  db_data:
+  db_aula:
