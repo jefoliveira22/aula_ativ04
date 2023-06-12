@@ -17,7 +17,7 @@ services:
       - exe04
   
   nodejs:
-    build: .
+    image: jefersonoliveira/ativfinal:0.0.1
     container_name: nodejs
     restart: always
     ports:
